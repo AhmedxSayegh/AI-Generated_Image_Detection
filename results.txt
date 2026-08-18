@@ -1,0 +1,47 @@
+on fine-tune distribution results
+
+
+accuracy improved  +8.0%
+recall improved +24.3%
+
+per-category accuracy (correct/total):
+  animal             base  17/23    fine-tuned  19/23 
+  deepfake           base  11/20    fine-tuned  11/20 
+  human              base   4/7     fine-tuned   6/7
+base
+  mean P(real) on true real : 0.619
+  mean P(real) on true fake : 0.345
+  separation                : +0.274
+  accuracy at 0.50 (greedy) : 64.0%
+  accuracy at 0.01 (best)   : 64.0%
+  -> healthy. Classes separate by +0.27 and 0.50 is already close to the best split.
+
+fine-tuned
+  mean P(real) on true real : 1.000
+  mean P(real) on true fake : 0.480
+  separation                : +0.520
+  accuracy at 0.50 (greedy) : 72.0%
+  accuracy at 0.98 (best)   : 76.0%
+  -> healthy. Classes separate by +0.52 and 0.50 is already close to the best split.
+========================================================================
+
+on different distribution results
+
+
+generator / set                 base    fine-tuned       delta
+------------------------------------------------------------------------
+dalle3                         100%          100%        +0%
+flux                           100%           75%       -25%
+gigagan                        100%          100%        +0%
+gpt4o                          100%          100%        +0%
+if                             100%          100%        +0%
+kandinsky                      100%           75%       -25%
+midjourney                      75%           75%        +0%
+pixart                         100%          100%        +0%
+stablediffusion                 75%          100%       +25%
+styleganxl                      75%          100%       +25%
+------------------------------------------------------------------------
+MEAN (out of distribution)      92.5%         92.5%      +0.0%
+explanation diversity          100%          100%        +0%
+largest duplicate cluster          1             1
+========================================================================
